@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+- A modern, responsive e-commerce front-end built with Next.js and Tailwind CSS.
+
+### Key Features
+- **Responsive Design:** Fully adaptable layout for desktop, tablet, and mobile.
+- **Dynamic Product Pages:** Pages generated based on product data.
+- **State Management:** Redux Toolkit for a centralized cart state.
+- **Interactive UI:** Client-side components for a smooth user experience.
+
+*This is a project for showcasing modern front-end development skills.*
