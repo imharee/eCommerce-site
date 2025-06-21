@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Star, Check } from 'lucide-react';
 import Link from "next/link";
 import { useParams } from 'next/navigation';
-import { productList, reviews as allReviews, recommendations } from '../../../data/products';
+import { productList, reviews as allReviews } from '../../../data/products';
 import NewsletterSignup from '../../../components/NewsletterSignup';
 import Footer from '../../../components/Footer';
 

@@ -1,7 +1,5 @@
 'use client';
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';

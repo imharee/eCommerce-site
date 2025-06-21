@@ -1,14 +1,14 @@
 'use client';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity } from '../../store/cartSlice';
-import { RootState } from '../../store';
+import { ArrowRight, CheckCircle, Ticket, Trash2 } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { ArrowRight, Trash2, CheckCircle, Ticket } from 'lucide-react';
-import NewsletterSignup from '../../components/NewsletterSignup';
-import Footer from '../../components/Footer';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Footer from '../../components/Footer';
+import NewsletterSignup from '../../components/NewsletterSignup';
+import { RootState } from '../../store';
+import { removeFromCart, updateQuantity } from '../../store/cartSlice';
 
 export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);

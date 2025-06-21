@@ -20,7 +20,6 @@ export default function CategoryPage() {
   const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
   const [selectedPrice, setSelectedPrice] = useState([0, 500]);
   const [showPrompt, setShowPrompt] = useState(false);
-  const [promptKey, setPromptKey] = useState(0);
   const PRODUCTS_PER_PAGE = 9;
 
   const handleSizeClick = (size: string) => {
@@ -73,7 +72,7 @@ export default function CategoryPage() {
       const timer = setTimeout(() => setShowPrompt(false), 2000);
       return () => clearTimeout(timer);
     }
-  }, [showPrompt, promptKey]);
+  }, [showPrompt]);
 
   return (
     <div className="bg-white min-h-screen w-full">
@@ -128,7 +127,6 @@ export default function CategoryPage() {
                   key={product.id}
                   product={product}
                   onAddToCart={() => {
-                    setPromptKey(prev => prev + 1);
                     setShowPrompt(true);
                   }}
                 />
@@ -168,7 +166,7 @@ export default function CategoryPage() {
         </div>
       </div>
       <Footer />
-      <div key={promptKey} className={`fixed top-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-500 ${showPrompt ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'}`}>
+      <div className={`fixed top-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-500 ${showPrompt ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'}`}>
         <div className="bg-black text-white px-6 py-3 rounded-full shadow-lg font-bold text-base">
           Added to cart!
         </div>
