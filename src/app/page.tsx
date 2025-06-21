@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
@@ -40,6 +41,8 @@ const categories = [
 export default function Home() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [promptKey, setPromptKey] = useState(0);
+  const [showPurchasePopup, setShowPurchasePopup] = useState(false);
+  const searchParams = useSearchParams();
 
   const handleAddToCartSuccess = () => {
     setShowPrompt(true);
@@ -55,12 +58,33 @@ export default function Home() {
     }
   }, [showPrompt, promptKey]);
 
+  // Check for purchase success parameter
+  useEffect(() => {
+    const purchase = searchParams.get('purchase');
+    if (purchase === 'success') {
+      setShowPurchasePopup(true);
+      // Remove the parameter from URL
+      window.history.replaceState({}, '', '/');
+      // Hide popup after 3 seconds
+      setTimeout(() => {
+        setShowPurchasePopup(false);
+      }, 3000);
+    }
+  }, [searchParams]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans">
       {/* Added to Cart Prompt */}
       <div key={promptKey} className={`fixed top-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-500 ${showPrompt ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'}`}>
         <div className="bg-black text-white px-8 py-4 rounded-full shadow-lg font-extrabold text-lg animate-bounce-in-out">
           Added to cart
+        </div>
+      </div>
+      
+      {/* Purchase Success Popup */}
+      <div className={`fixed top-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-500 ${showPurchasePopup ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'}`}>
+        <div className="bg-green-600 text-white px-8 py-4 rounded-full shadow-lg font-extrabold text-lg animate-bounce-in-out">
+          You have purchased!
         </div>
       </div>
       

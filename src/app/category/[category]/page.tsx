@@ -116,7 +116,7 @@ export default function CategoryPage() {
                       placeholder="Search products..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                      className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 placeholder:text-gray-600 placeholder:font-semibold focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                     />
                     <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -124,7 +124,7 @@ export default function CategoryPage() {
                   </div>
                   <div className="relative">
                     <select
-                      className="appearance-none px-4 py-2 pr-10 rounded-lg border border-gray-300 text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent cursor-pointer"
+                      className="appearance-none px-4 py-2 pr-10 rounded-lg border border-gray-300 text-sm font-semibold text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent cursor-pointer"
                       value={sort}
                       onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSort(e.target.value)}
                     >
@@ -209,14 +209,12 @@ export default function CategoryPage() {
                 </div>
               </div>
             )}
-
-            {/* Newsletter Section */}
-            <div className="mt-20">
-              <NewsletterSignup />
-            </div>
           </div>
         </div>
       </div>
+      
+      {/* Newsletter Section - Full Width */}
+      <NewsletterSignup />
       
       <Footer />
       

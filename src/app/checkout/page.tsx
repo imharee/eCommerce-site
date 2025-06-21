@@ -1,15 +1,29 @@
 'use client';
 
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { RootState } from '../../store';
+import { clearCart } from '../../store/cartSlice';
 
 export default function CheckoutPage() {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const discount = Math.round(subtotal * 0.2);
   const delivery = cartItems.length > 0 ? 15 : 0;
   const total = subtotal - discount + delivery;
+
+  const handlePlaceOrder = () => {
+    // Clear the cart
+    dispatch(clearCart());
+    
+    // Navigate to home page with purchase success parameter
+    router.push('/?purchase=success');
+  };
 
   return (
     <div className="bg-white min-h-screen w-full">
@@ -36,11 +50,11 @@ export default function CheckoutPage() {
               <h2 className="text-2xl font-bold mb-6">Shipping Information</h2>
               {/* Add shipping form here */}
               <form className="space-y-4">
-                <input type="text" placeholder="Full Name" className="w-full p-3 border rounded-lg" />
-                <input type="text" placeholder="Address" className="w-full p-3 border rounded-lg" />
-                <input type="text" placeholder="City" className="w-full p-3 border rounded-lg" />
-                <input type="text" placeholder="Postal Code" className="w-full p-3 border rounded-lg" />
-                <input type="text" placeholder="Country" className="w-full p-3 border rounded-lg" />
+                <input type="text" placeholder="Full Name" className="w-full p-3 border rounded-lg placeholder:text-gray-600 placeholder:font-semibold" />
+                <input type="text" placeholder="Address" className="w-full p-3 border rounded-lg placeholder:text-gray-600 placeholder:font-semibold" />
+                <input type="text" placeholder="City" className="w-full p-3 border rounded-lg placeholder:text-gray-600 placeholder:font-semibold" />
+                <input type="text" placeholder="Postal Code" className="w-full p-3 border rounded-lg placeholder:text-gray-600 placeholder:font-semibold" />
+                <input type="text" placeholder="Country" className="w-full p-3 border rounded-lg placeholder:text-gray-600 placeholder:font-semibold" />
               </form>
             </div>
             <aside className="w-full lg:w-96">
@@ -53,7 +67,7 @@ export default function CheckoutPage() {
                   <hr className="my-4"/>
                   <div className="flex justify-between font-bold text-lg"><span>Total</span><span className="text-black">${total.toFixed(2)}</span></div>
                 </div>
-                <button className="w-full mt-6 bg-black text-white font-bold py-3 rounded-full hover:bg-gray-800 transition">
+                <button className="w-full mt-6 bg-black text-white font-bold py-3 rounded-full hover:bg-gray-800 transition" onClick={handlePlaceOrder}>
                   Place Order
                 </button>
               </div>

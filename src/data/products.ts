@@ -413,4 +413,10 @@ export const productList = [
       price: 240,
       imageUrl: '/images/recommendation-3.png',
     },
+    {
+      id: '5',
+      name: 'Checkered Shirt',
+      price: 180,
+      imageUrl: '/images/product5.png',
+    },
   ]; 

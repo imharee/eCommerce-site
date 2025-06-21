@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Casual", href: "/category/casual" },
   { label: "Overview", href: "/category/all" },
   { label: "New Arrivals", href: "/#new-arrivals" },
-  { label: "Brands", href: "/category/brands" },
+  { label: "T-SHIRT", href: "/product/1" },
 ];
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search for products..."
-              className="bg-transparent text-grey-700 ml-2 w-full outline-none"
+              className="bg-transparent text-gray-700 ml-2 w-full outline-none placeholder:text-gray-600 placeholder:font-semibold"
             />
           </div>
           <div className="flex items-center space-x-4">

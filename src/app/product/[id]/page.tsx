@@ -230,18 +230,18 @@ export default function ProductPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="flex items-center bg-gray-100 rounded-lg border border-gray-200">
-                  <button 
-                    onClick={() => setQuantity(q => Math.max(1, q - 1))} 
-                    className="px-4 py-3 text-xl hover:bg-gray-200 rounded-l-lg transition-colors"
+                  <button
+                    onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                    className="px-4 py-3 text-2xl font-bold text-black hover:bg-gray-200 rounded-l-lg transition-colors focus:outline-none focus:ring-2 focus:ring-black"
                   >
                     -
                   </button>
-                  <span className="px-6 py-3 font-semibold w-16 text-center bg-white border-x border-gray-200">
+                  <span className="px-6 py-3 font-bold text-2xl text-black w-16 text-center bg-white border-x border-gray-200">
                     {quantity}
                   </span>
-                  <button 
-                    onClick={() => setQuantity(q => q + 1)} 
-                    className="px-4 py-3 text-xl hover:bg-gray-200 rounded-r-lg transition-colors"
+                  <button
+                    onClick={() => setQuantity(q => q + 1)}
+                    className="px-4 py-3 text-2xl font-bold text-black hover:bg-gray-200 rounded-r-lg transition-colors focus:outline-none focus:ring-2 focus:ring-black"
                   >
                     +
                   </button>
@@ -328,17 +328,17 @@ export default function ProductPage() {
             {selectedTab === 'reviews' && (
               <div>
                 <div className="flex justify-between items-center mb-8">
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-2xl font-bold text-black">
                     All Reviews 
                     <span className="text-gray-500 text-lg font-normal ml-2">({allReviews.length})</span>
                   </h3>
                   <div className="flex gap-3">
-                    <button className="bg-gray-100 rounded-lg p-3 hover:bg-gray-200 transition-colors">
+                    <button className="bg-gray-100 rounded-lg p-3 hover:bg-gray-200 transition-colors text-black">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
-                    <select className="bg-gray-100 rounded-lg px-4 py-3 font-semibold appearance-none border-0 focus:outline-none focus:ring-2 focus:ring-black">
+                    <select className="bg-gray-100 rounded-lg px-4 py-3 font-semibold appearance-none border-0 focus:outline-none focus:ring-2 focus:ring-black text-black">
                       <option>Latest</option>
                       <option>Highest Rated</option>
                       <option>Lowest Rated</option>
@@ -360,11 +360,11 @@ export default function ProductPage() {
                         <button className="text-gray-400 hover:text-gray-600">•••</button>
                       </div>
                       <div className="flex items-center gap-2 mb-3">
-                        <p className="font-semibold text-gray-900">{review.name}</p>
+                        <p className="font-bold text-black text-base">{review.name}</p>
                         <Check size={16} className="bg-green-500 text-white rounded-full p-0.5" />
                       </div>
-                      <p className="text-gray-700 mb-3 leading-relaxed">{review.text}</p>
-                      <p className="text-sm text-gray-500">Posted on {review.date}</p>
+                      <p className="text-black text-base mb-3 leading-relaxed">{review.text}</p>
+                      <p className="text-sm text-gray-700">Posted on {review.date}</p>
                     </div>
                   ))}
                 </div>
@@ -434,6 +434,33 @@ export default function ProductPage() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+
+        {/* Brands Section */}
+        <div id="brands" className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-black mb-3">Our Trusted Brands</h2>
+            <p className="text-gray-600">Discover premium brands that share our commitment to quality</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {[1, 2, 3, 4, 5].map((brandNum) => (
+              <div key={brandNum} className="flex items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer group">
+                <Image
+                  src={`/brands/brand${brandNum}.svg`}
+                  alt={`Brand ${brandNum}`}
+                  width={120}
+                  height={60}
+                  className="filter brightness-0 group-hover:brightness-100 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-6">We partner with the world's leading fashion brands to bring you the best quality products</p>
+            <button className="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+              View All Brands
+            </button>
           </div>
         </div>
       </div>

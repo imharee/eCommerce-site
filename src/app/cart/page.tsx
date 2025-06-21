@@ -112,7 +112,7 @@ export default function CartPage() {
               <div className="mt-6 flex gap-2">
                 <div className="relative flex-1">
                    <Ticket size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"/>
-                   <input type="text" placeholder="Add promo code" className="w-full bg-gray-100 rounded-full pl-12 pr-4 py-3 focus:outline-none placeholder-gray-500"/>
+                   <input type="text" placeholder="Add promo code" className="w-full bg-gray-100 rounded-full pl-12 pr-4 py-3 focus:outline-none placeholder:text-gray-600 placeholder:font-semibold"/>
                 </div>
                 <button onClick={handleApplyPromo} className="bg-black text-white font-bold px-8 py-3 rounded-full hover:bg-gray-800 transition">
                   Apply
