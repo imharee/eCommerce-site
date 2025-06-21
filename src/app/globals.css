@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Satoshi', 'Inter', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +21,30 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Satoshi', 'Inter', Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .font-satoshi {
+    font-family: 'Satoshi', 'Inter', Arial, Helvetica, sans-serif;
+  }
+  
+  .animate-fade-in-out {
+    animation: fade-in-out 2.1s ease-in-out forwards;
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
