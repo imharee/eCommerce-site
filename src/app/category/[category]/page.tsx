@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import Link from "next/link";
-import { useDispatch } from 'react-redux';
 import CategoryProductCard from "../../../components/CategoryProductCard";
 import { productList } from "../../../data/products";
 import FilterSidebar from "../../../components/FilterSidebar";
@@ -23,7 +22,6 @@ export default function CategoryPage() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [promptKey, setPromptKey] = useState(0);
   const PRODUCTS_PER_PAGE = 9;
-  const dispatch = useDispatch();
 
   const handleSizeClick = (size: string) => {
     setSelectedSizes((prev) =>

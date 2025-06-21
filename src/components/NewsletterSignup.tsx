@@ -11,11 +11,12 @@ const NewsletterSignup = () => {
           </h2>
         </div>
         <form className="w-full max-w-md flex-shrink-0">
-          <div className="relative mb-3">
+          <div className="relative">
+            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400" size={20} />
             <input
               type="email"
               placeholder="Enter your email address"
-              className="w-full rounded-full py-4 px-6 text-black font-semibold border-none focus:outline-none focus:ring-2 focus:ring-gray-300"
+              className="w-full pl-12 pr-4 py-4 rounded-full bg-white text-black placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white"
             />
           </div>
           <button

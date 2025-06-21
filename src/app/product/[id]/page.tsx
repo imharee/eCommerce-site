@@ -171,7 +171,7 @@ export default function ProductPage() {
                         <p className="font-bold">{review.name}</p>
                         <Check size={16} className="bg-green-500 text-white rounded-full p-0.5" />
                       </div>
-                      <p className="text-neutral-700 mb-3">'"{review.text}"'</p>
+                      <p className="text-neutral-700 mb-3">{review.text}</p>
                       <p className="text-sm text-neutral-500">Posted on {review.date}</p>
                     </div>
                   ))}

@@ -1,21 +1,20 @@
 'use client';
-import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, updateQuantity } from '../../store/cartSlice';
 import { RootState } from '../../store';
-import { removeFromCart, updateQuantity, clearCart } from '../../store/cartSlice';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Trash2, CheckCircle, Ticket, ArrowRight } from 'lucide-react';
-import Footer from '../../components/Footer';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Trash2, CheckCircle, Ticket } from 'lucide-react';
 import NewsletterSignup from '../../components/NewsletterSignup';
+import Footer from '../../components/Footer';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
   const router = useRouter();
   const [showPrompt, setShowPrompt] = useState(false);
-  const [promptKey, setPromptKey] = useState(0);
 
   // Mock: calculate subtotal, discount, delivery fee
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -24,6 +23,13 @@ export default function CartPage() {
   const total = subtotal - discount + delivery;
 
   const handleCheckout = () => {
+    if (cartItems.length > 0) {
+      setShowPrompt(true);
+      // In a real app, you'd dispatch an action to clear the cart after checkout
+      // dispatch(clearCart());
+    } else {
+      alert("Your cart is empty!");
+    }
     router.push('/checkout');
   };
 
@@ -31,13 +37,12 @@ export default function CartPage() {
     alert('Promo code functionality not implemented yet!');
   };
 
-  // Show prompt for 2.1 seconds when triggered
   useEffect(() => {
     if (showPrompt) {
       const timer = setTimeout(() => setShowPrompt(false), 2100);
       return () => clearTimeout(timer);
     }
-  }, [showPrompt, promptKey]);
+  }, [showPrompt]);
 
   return (
     <div className="bg-white min-h-screen w-full relative">
@@ -136,7 +141,7 @@ export default function CartPage() {
           </aside>
         </div>
         {showPrompt && (
-          <div key={promptKey} className="fixed top-10 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in-out" role="alert">
+          <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in-out" role="alert">
             <CheckCircle className="text-green-400" />
             <span>Your purchase completed successfully!</span>
           </div>
