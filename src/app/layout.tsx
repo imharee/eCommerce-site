@@ -1,8 +1,9 @@
-'use client';
 import "./globals.css";
-import { Provider } from "react-redux";
-import store from "../store";
 import Header from "../components/Header";
+import Providers from "../components/Providers";
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -12,16 +13,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://api.fontshare.com" />
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased font-satoshi">
-        <Provider store={store}>
+      <body className={`antialiased font-satoshi ${inter.className}`}>
+        <Providers>
           <Header />
           {children}
-        </Provider>
+        </Providers>
       </body>
     </html>
   );

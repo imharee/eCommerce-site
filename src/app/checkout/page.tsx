@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { RootState } from '../../store';
 import { clearCart } from '../../store/cartSlice';
 

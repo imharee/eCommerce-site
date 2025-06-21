@@ -121,7 +121,7 @@ export const productList = [
       faqs: [
         { q: 'Are the stripes printed or woven?', a: 'The stripes are woven into the fabric, ensuring they never fade or peel.' },
         { q: 'Is this suitable for layering?', a: 'Yes, this t-shirt is perfect for layering under jackets, cardigans, or sweaters.' },
-        { q: 'What\'s the fit like?', a: 'This has a classic fit - not too tight, not too loose, perfect for everyday wear.' },
+        { q: 'What&apos;s the fit like?', a: 'This has a classic fit - not too tight, not too loose, perfect for everyday wear.' },
       ],
     },
     { 
@@ -160,7 +160,7 @@ export const productList = [
       ],
       faqs: [
         { q: 'How much stretch do these jeans have?', a: 'These jeans have 2% elastane for comfortable stretch while maintaining shape.' },
-        { q: 'What\'s the rise height?', a: 'These are mid-rise jeans, sitting at the natural waistline.' },
+        { q: 'What&apos;s the rise height?', a: 'These are mid-rise jeans, sitting at the natural waistline.' },
         { q: 'Do they stretch out over time?', a: 'Minimal stretch-out due to the quality denim and construction.' },
       ],
     },
@@ -227,7 +227,7 @@ export const productList = [
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       type: "T-shirts", 
       style: "Casual",
-      description: 'A unique t-shirt featuring distinctive striped sleeves that add a modern, sporty touch to your casual wardrobe. The contrast between the solid body and striped sleeves creates an eye-catching design that\'s perfect for everyday wear.',
+      description: 'A unique t-shirt featuring distinctive striped sleeves that add a modern, sporty touch to your casual wardrobe. The contrast between the solid body and striped sleeves creates an eye-catching design that&apos;s perfect for everyday wear.',
       details: [
         '100% Cotton',
         'Machine wash cold',
@@ -320,7 +320,7 @@ export const productList = [
       ],
       faqs: [
         { q: 'Is the graphic design durable?', a: 'Yes, we use high-quality printing techniques that ensure the design lasts through many washes.' },
-        { q: 'What\'s the meaning behind the design?', a: 'The design represents courage and strength, perfect for those who want to show their inner warrior.' },
+        { q: 'What&apos;s the meaning behind the design?', a: 'The design represents courage and strength, perfect for those who want to show their inner warrior.' },
         { q: 'Is this suitable for working out?', a: 'Yes, this t-shirt is comfortable enough for light workouts and everyday activities.' },
       ],
     },
@@ -362,7 +362,7 @@ export const productList = [
       faqs: [
         { q: 'Are these suitable for running?', a: 'Yes, these bermuda shorts are perfect for running and other athletic activities.' },
         { q: 'Do they have pockets?', a: 'Yes, these shorts feature convenient side pockets for storing small items.' },
-        { q: 'What\'s the length of these shorts?', a: 'These are bermuda length, falling just above the knee for comfortable coverage.' },
+        { q: 'What&apos;s the length of these shorts?', a: 'These are bermuda length, falling just above the knee for comfortable coverage.' },
       ],
     },
   ];
@@ -372,13 +372,13 @@ export const productList = [
       name: 'Sam D.',
       date: 'August 14, 2023',
       rating: 5,
-      text: 'I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It\'s become my favorite go-to shirt.',
+      text: 'I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It&apos;s become my favorite go-to shirt.',
     },
     {
       name: 'Alex M.',
       date: 'August 15, 2023',
       rating: 5,
-      text: 'The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I\'m quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.',
+      text: 'The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I&apos;m quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.',
     },
     {
       name: 'Ethan R.',
@@ -390,7 +390,7 @@ export const productList = [
       name: 'Sarah K.',
       date: 'August 17, 2023',
       rating: 5,
-      text: 'This is my second purchase from this brand and I\'m still impressed! The quality is exceptional and the design is perfect for creative professionals. The fit is exactly as expected and the material is breathable. Highly recommend!',
+      text: 'This is my second purchase from this brand and I&apos;m still impressed! The quality is exceptional and the design is perfect for creative professionals. The fit is exactly as expected and the material is breathable. Highly recommend!',
     },
   ];
   

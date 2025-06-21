@@ -397,7 +397,7 @@ export default function ProductPage() {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black mb-3">You Might Also Like</h2>
-            <p className="text-gray-600">Discover more products you'll love</p>
+            <p className="text-gray-600">Discover more products you&apos;ll love</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {recommendations.map((item) => {
@@ -457,7 +457,7 @@ export default function ProductPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">We partner with the world's leading fashion brands to bring you the best quality products</p>
+            <p className="text-gray-600 mb-6">We partner with the world&apos;s leading fashion brands to bring you the best quality products</p>
             <button className="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               View All Brands
             </button>

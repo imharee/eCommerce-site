@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import ProductCard from "../components/ProductCard";
@@ -38,7 +38,7 @@ const categories = [
   { name: "Gym", imageUrl: "/images/category-gym.png" },
 ];
 
-export default function Home() {
+function HomeContent() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [promptKey, setPromptKey] = useState(0);
   const [showPurchasePopup, setShowPurchasePopup] = useState(false);
@@ -205,9 +205,22 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Customer Reviews Section */}
       <CustomerReviews />
+      
+      {/* Newsletter Section */}
       <NewsletterSignup />
+      
+      {/* Footer */}
       <Footer />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 } 
