@@ -1,9 +1,8 @@
 'use client';
-import { ArrowRight, CheckCircle, Ticket, Trash2 } from 'lucide-react';
+import { ArrowRight, Ticket, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../components/Footer';
 import NewsletterSignup from '../../components/NewsletterSignup';
@@ -14,7 +13,6 @@ export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
   const router = useRouter();
-  const [showPrompt, setShowPrompt] = useState(false);
 
   // Mock: calculate subtotal, discount, delivery fee
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -24,25 +22,15 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     if (cartItems.length > 0) {
-      setShowPrompt(true);
-      // In a real app, you'd dispatch an action to clear the cart after checkout
-      // dispatch(clearCart());
+      router.push('/checkout');
     } else {
       alert("Your cart is empty!");
     }
-    router.push('/checkout');
   };
 
   const handleApplyPromo = () => {
     alert('Promo code functionality not implemented yet!');
   };
-
-  useEffect(() => {
-    if (showPrompt) {
-      const timer = setTimeout(() => setShowPrompt(false), 2100);
-      return () => clearTimeout(timer);
-    }
-  }, [showPrompt]);
 
   return (
     <div className="bg-white min-h-screen w-full relative">
@@ -140,12 +128,6 @@ export default function CartPage() {
             </div>
           </aside>
         </div>
-        {showPrompt && (
-          <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in-out" role="alert">
-            <CheckCircle className="text-green-400" />
-            <span>Your purchase completed successfully!</span>
-          </div>
-        )}
       </div>
       <NewsletterSignup />
       <Footer />

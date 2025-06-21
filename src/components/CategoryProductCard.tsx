@@ -51,7 +51,7 @@ const CategoryProductCard: React.FC<CategoryProductCardProps> = ({ product, onAd
           <span className="text-sm text-gray-600 ml-1">{product.rating.toFixed(1)}/5.0</span>
         </div>
 
-        <div className="flex items-center gap-2 mt-auto">
+        <div className="flex items-center gap-2 mt-auto mb-4">
             <span className="text-xl font-bold text-black">${product.price}</span>
             {product.oldPrice && (
             <span className="text-base line-through text-gray-400">${product.oldPrice}</span>
@@ -63,8 +63,7 @@ const CategoryProductCard: React.FC<CategoryProductCardProps> = ({ product, onAd
       </div>
        <button
         onClick={handleAddToCart}
-        className="mt-4 w-full py-2.5 rounded-lg bg-black text-white font-semibold text-center opacity-0 group-hover:opacity-100 absolute bottom-5 right-5 left-5 transition-all duration-300"
-        style={{maxWidth: 'calc(100% - 40px)'}}
+        className="w-full py-2.5 rounded-lg bg-black text-white font-semibold text-center opacity-0 group-hover:opacity-100 transition-all duration-300"
       >
         Add to Cart
       </button>

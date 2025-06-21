@@ -15,18 +15,21 @@ const brands = [
   { name: "Prada", logo: "/brands/brand4.svg" },
   { name: "Calvin Klein", logo: "/brands/brand5.svg" },
 ];
+
 const newArrivals = [
-  { id: '1', name: "T-shirt with Tape Details", rating: 4.5, price: 120, oldPrice: undefined, discount: undefined, imageUrl: "/images/new-arrival-1.png" },
+  { id: '1', name: "T-shirt with Tape Details", rating: 4.5, price: 120, imageUrl: "/images/new-arrival-1.png" },
   { id: '2', name: "Skinny Fit Jeans", rating: 3.5, price: 240, oldPrice: 260, discount: 20, imageUrl: "/images/new-arrival-2.png" },
-  { id: '3', name: "Checkered Shirt", rating: 4.5, price: 180, oldPrice: undefined, discount: undefined, imageUrl: "/images/new-arrival-3.png" },
-  { id: '4',name: "Sleeve Striped T-shirt", rating: 4.5, price: 130, oldPrice: 160, discount: 30, imageUrl: "/images/new-arrival-4.png" },
+  { id: '3', name: "Checkered Shirt", rating: 4.5, price: 180, imageUrl: "/images/new-arrival-3.png" },
+  { id: '4', name: "Sleeve Striped T-shirt", rating: 4.5, price: 130, oldPrice: 160, discount: 30, imageUrl: "/images/new-arrival-4.png" },
 ];
+
 const topSelling = [
   { id: '5', name: "Vertical Striped Shirt", rating: 5, price: 212, oldPrice: 232, discount: 20, imageUrl: "/images/top-selling-1.png" },
   { id: '6', name: "Courage Graphic T-shirt", rating: 4.0, price: 145, imageUrl: "/images/top-selling-2.png" },
   { id: '7', name: "Loose Fit Bermuda Shorts", rating: 3.0, price: 80, imageUrl: "/images/top-selling-3.png" },
   { id: '8', name: "Faded Skinny Jeans", rating: 4.5, price: 210, imageUrl: "/images/top-selling-4.png" },
 ];
+
 const categories = [
   { name: "Casual", imageUrl: "/images/category-casual.png" },
   { name: "Formal", imageUrl: "/images/category-formal.png" },
@@ -47,7 +50,7 @@ export default function Home() {
     if (showPrompt) {
       const timer = setTimeout(() => {
         setShowPrompt(false);
-      }, 2000); // Hide after 2 seconds
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [showPrompt, promptKey]);
@@ -60,10 +63,7 @@ export default function Home() {
           Added to cart
         </div>
       </div>
-      {/* Promo Bar */}
-      <div className="w-full bg-black text-white text-center py-2 text-sm font-medium">
-        Sign up and get 20% off for your first order. <a href="#" className="underline ml-1">Sign Up Now</a>
-      </div>
+      
       {/* Hero Section */}
       <section className="relative w-full bg-white flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:pb-0 md:pt-20">
         <div className="flex-1 flex flex-col items-start justify-center z-10">
@@ -86,9 +86,10 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center relative w-full md:w-auto mt-8 md:mt-0">
-          <Image src="/images/hero.jpg" alt="Hero" width={480} height={520} className="rounded-2xl object-cover shadow-xl " />
+          <Image src="/images/hero.jpg" alt="Hero" width={480} height={520} className="rounded-2xl object-cover shadow-xl" />
         </div>
       </section>
+      
       {/* Brands Section */}
       <section className="w-full bg-black py-8">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,9 +107,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
       {/* NEW ARRIVALS Section */}
       <main className="flex-1 w-full max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <section>
+        <section id="new-arrivals" className="scroll-mt-20">
           <h2 className="text-4xl font-extrabold text-center mb-10 text-[#262626] tracking-tight uppercase">NEW ARRIVALS</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {newArrivals.map((product) => (
@@ -132,6 +134,7 @@ export default function Home() {
           </div>
         </section>
         <hr className="my-16 border-[#f0f0f0]" />
+        
         {/* TOP SELLING Section */}
         <section>
           <h2 className="text-4xl font-extrabold text-center mb-12 text-[#262626] tracking-tight uppercase">TOP SELLING</h2>
@@ -143,6 +146,8 @@ export default function Home() {
                 name={product.name}
                 rating={product.rating}
                 price={product.price}
+                oldPrice={product.oldPrice}
+                discount={product.discount}
                 imageUrl={product.imageUrl}
                 onAddToCartSuccess={handleAddToCartSuccess}
               />
@@ -155,6 +160,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      
       {/* Browse by Dress Style Section */}
       <section className="w-full py-16 bg-white">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,6 +180,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
       <CustomerReviews />
       <NewsletterSignup />
       <Footer />

@@ -3,7 +3,6 @@ import "./globals.css";
 import { Provider } from "react-redux";
 import store from "../store";
 import Header from "../components/Header";
-import { inter } from "./fonts";
 
 export default function RootLayout({
   children,
@@ -11,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
