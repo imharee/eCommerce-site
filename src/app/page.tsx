@@ -21,7 +21,6 @@ const brands = [
 // Use products from the data file instead of hardcoded arrays
 const newArrivals = productList.slice(0, 4);
 const topSelling = productList.slice(4, 8);
-const recommendations = productList.slice(8, 9); // Get the 9th product
 
 const categories = [
   { name: "Casual", imageUrl: "/images/category-casual.png" },
